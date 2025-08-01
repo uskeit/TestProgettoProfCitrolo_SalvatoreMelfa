@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  mcp-server:
+    build: .
+    container_name: mcp-server
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./execution:/app/execution
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: [ "uv", "run", "python", "main.py" ]
